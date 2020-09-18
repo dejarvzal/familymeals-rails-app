@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   get '/' => 'sessions#welcome'
+
   resources :ingredients
   resources :recipes
   resources :meals
