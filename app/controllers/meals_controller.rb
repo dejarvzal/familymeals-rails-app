@@ -1,5 +1,9 @@
 class MealsController < ApplicationController
 
+    def index
+        @meals = Meal.all
+    end
+
     def new
         @meal = Meal.new
         @meal.build_recipe
@@ -11,7 +15,7 @@ class MealsController < ApplicationController
         if @meal.save
          redirect_to meal_path(@meal)
         else
-         render :new
+         render :index
         end
     end
 
