@@ -1,0 +1,31 @@
+<h1> Create a New Meal!</h1> 
+
+<%= form_for (@meal) do |f| %>
+ <div>
+    <%= f.label :category %> 
+    <%= select_tag "category", raw("<option>Select</option><option>Breakfast</option><option>Lunch</option><option>Brunch</option><option>Dinner</option>"), multiple: false %><br><br>
+ </div>
+ <div>
+    <%= f.label :meal %>
+    <%= f.text_field :name %><br><br>
+ </div>
+ <div>
+    <%= f.label :date_cooked %>
+    <%= f.date_field :date %><br><br>
+ </div>
+ <div>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %><br><br>
+ </div>
+ <p> Select a Recipe that already exists: </p>
+
+ <p> Or create a new Recipe: </p>
+<%# Want to get this to display as star ratings or something similar.. Look into using Bootstrap for this%>
+ <div>
+    <%= f.label :rating_1_to_5 %>
+    <%= f.check_box :rating %> <br><br>
+ </div>
+
+    <%= f.submit "Save Meal" %>
+
+<% end %>
