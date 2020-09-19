@@ -7,7 +7,8 @@ class MealsController < ApplicationController
 
     def create
         @meal = Meal.new(meal_params)
-        if @meal.save!
+        @meal.user_id = session[:user_id]
+        if @meal.save
          redirect_to meal_path(@meal)
         else
          render :new
