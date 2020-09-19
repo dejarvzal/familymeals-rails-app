@@ -9,4 +9,8 @@ class SessionsController < ApplicationController
         redirect_to '/'
     end
 
+    def new
+
+    end
+
 end
