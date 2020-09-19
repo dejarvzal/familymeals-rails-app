@@ -18,8 +18,21 @@
     <%= f.text_area :notes %><br><br>
  </div>
  <p> Select a Recipe that already exists: </p>
-   
- <p> Or create a new Recipe: </p>
+ <div>
+    <%= f.collection_select :recipe_id, Recipe.all, :id, :name, {prompt: "Choose an existing Recipe"} %>
+ </div>
+ <p> Or create a new Recipe: </p> <%#nested form here %>
+ <div> 
+    <%= f.fields_for :recipe do |r|  %>
+    <%= r.label :name %>
+    <%= r.text_field :name %>
+    <%= r.label :is_vegan? %>
+    <%= r.check_box :is_vegan %><br><br>
+    <%= r.label :cooking_instruction %>
+    <%= r.text_area :instruction %>
+
+    <% end %>
+ </div>
 <%# Want to get this to display as star ratings or something similar.. Look into using Bootstrap for this%>
  <div>
     <%= f.label :rating_1_to_5 %>
