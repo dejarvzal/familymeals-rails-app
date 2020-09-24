@@ -1,5 +1,8 @@
 class Recipe < ApplicationRecord
-  belongs_to :meal
-  has_many :ingredients
-  has_many :users, through: :meals
+    has_many :users, through: :meals
+    belongs_to :meal, optional: true
+    has_many :ingredients
+  
 end
+
+#changed the association from belongs_to :meal to has_many
