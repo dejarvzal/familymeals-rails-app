@@ -1,10 +1,12 @@
 <h1> Create a New Meal!</h1> 
 
-<%= form_for (@meal) do |f| %>
+<%# Do I need to specify that the meal is being saved for a specific user? %>
+<%= form_for @meal do |f| %>
  <div>
     <%= f.label :category %> 
-    <%= select_tag "category", raw("<option>Select</option><option>Breakfast</option><option>Lunch</option><option>Brunch</option><option>Dinner</option>"), multiple: false %><br><br>
+    <%= select_tag(:category, raw('<option>Select</option><option>Breakfast</option><option>Lunch</option><option>Brunch</option><option>Dinner</option>')) %><br><br>
  </div>
+
  <div>
     <%= f.label :meal %>
     <%= f.text_field :name %><br><br>
@@ -22,14 +24,15 @@
     <%= f.collection_select :recipe_id, Recipe.all, :id, :name, {prompt: "Choose an existing Recipe"} %>
  </div>
  <p> Or create a new Recipe: </p> <%#nested form here %>
+ <%#wondering if I can use a partial here for new recipe %>
  <div> 
-    <%= f.fields_for :recipe do |r|  %>
-    <%= r.label :name %>
-    <%= r.text_field :name %>
-    <%= r.label :is_vegan? %>
-    <%= r.check_box :is_vegan %><br><br>
-    <%= r.label :cooking_instruction %>
-    <%= r.text_area :instruction %>
+    <%= f.fields_for :recipes do |r|  %>
+        <%= r.label :name %>
+        <%= r.text_field :name %>
+        <%= r.label :is_vegan? %>
+        <%= r.check_box :is_vegan %><br><br>
+        <%= r.label :cooking_instruction %>
+        <%= r.text_area :instruction %>
     <% end %>
  </div>
 <%# Want to get this to display as star ratings or something similar.. Look into using Bootstrap for this%>
@@ -37,7 +40,5 @@
     <%= f.label :rating_1_to_5 %>
     <%= f.check_box :rating %> <br><br>
  </div>
-
-    <%= f.submit "Save Meal" %>
-
-<% end %>
+ <%=f.submit "Save Meal" %>
+ <% end %>
