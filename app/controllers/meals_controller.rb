@@ -4,9 +4,12 @@ class MealsController < ApplicationController
         @meals = Meal.all
     end
 
+    def show
+    end
+
     def new
         @meal = Meal.new
-        @meal.build_recipe
+        @meal.recipes.build
     end
 
     def create
@@ -15,14 +18,16 @@ class MealsController < ApplicationController
         if @meal.save
          redirect_to meal_path(@meal)
         else
-         render :index
+           
+         render :show  
         end
     end
-
 
     private
 
     def meal_params
-        params.require(:meal).permit(:name, :category, :date, :notes, :recipe_id, recipe_attributes: [:name, :is_vegan, :instruction] )
+        params.require(:meal).permit(:name, :category, :date, :notes, :rating, :recipe_id, recipes_attributes: [:name, :is_vegan, :instruction])
     end
+
+  
 end
