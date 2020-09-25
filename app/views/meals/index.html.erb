@@ -1,7 +1,7 @@
 <h1>All the meals! </h1>
 
 <% Meal.all.each do |m| %>
-<h3> <%= m.date %>: <%= m.name %> - <%= m.category %></h3>
+<h3> <%= m.date.to_formatted_s(:long) %>: <%= m.name %> - <%= m.category %></h3>
 <% end %>
 
 <p>These are all the meals that have been prepared. </p>
