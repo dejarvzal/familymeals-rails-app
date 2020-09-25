@@ -13,6 +13,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user_id
         redirect_to user_path(@user)
        else
+        flash[:error] = "Sorry, please valid info. Please try again"
         render :new
        end
     end
