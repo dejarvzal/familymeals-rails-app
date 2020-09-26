@@ -1,10 +1,12 @@
 <h1> Create a New Meal!</h1> 
 
+<%= render partial: 'layouts/errors', locals: {object: @meal}  %>
+
 <%# Do I need to specify that the meal is being saved for a specific user? %>
 <%= form_for @meal do |f| %>
  <div>
     <%= f.label :category %> 
-     <%= f.select :category, [["Select"], ["Breakfast"], ["Lunch"], ["Brunch"], ["Dinner"]%><br><br>
+     <%= f.select :category, [["Select"], ["Breakfast"], ["Lunch"], ["Brunch"], ["Dinner"]]%><br><br>
  </div>
 
  <div>
@@ -25,7 +27,7 @@
  </div>
  <p> Or create a new Recipe: </p> <%#nested form here %>
  <%#wondering if I can use a partial here for new recipe %>
- <div> 
+ <div>     
     <%= f.fields_for :recipes do |r|  %>
         <%= r.label :name %>
         <%= r.text_field :name %>
