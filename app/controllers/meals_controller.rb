@@ -5,6 +5,7 @@ class MealsController < ApplicationController
     end
 
     def show
+        @meal = Meal.find_by_id(params[:id])
     end
 
     def new
@@ -13,13 +14,13 @@ class MealsController < ApplicationController
     end
 
     def create
+        #need to be logged in before creating a meal
         @meal = Meal.new(meal_params)
         @meal.user_id = session[:user_id]
         if @meal.save
          redirect_to meal_path(@meal)
         else
-           
-         render :show  
+         render :new  
         end
     end
 
