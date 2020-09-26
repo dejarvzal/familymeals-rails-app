@@ -4,7 +4,7 @@
 <%= form_for @meal do |f| %>
  <div>
     <%= f.label :category %> 
-    <%= select_tag(:category, raw('<option>Select</option><option>Breakfast</option><option>Lunch</option><option>Brunch</option><option>Dinner</option>')) %><br><br>
+     <%= f.select :category, [["Select"], ["Breakfast"], ["Lunch"], ["Brunch"], ["Dinner"]%><br><br>
  </div>
 
  <div>
@@ -35,7 +35,7 @@
         <%= r.text_area :instruction %>
     <% end %>
  </div>
-<%# Want to get this to display as star ratings or something similar.. Look into using Bootstrap for this%>
+<%# Want to get this to display as star ratings or something similar.. Look into using Bootstrap for this. Also add to Edit view page%>
  <div>
     <%= f.label :rating_1_to_5 %>
     <%= f.check_box :rating %> <br><br>
