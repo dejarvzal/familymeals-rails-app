@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
     belongs_to :meal, optional: true
     has_many :ingredients
   
-end
+    validates :name, uniqueness: true, presence: true
+    validates :instruction, presence: true
 
-#changed the association from belongs_to :meal to has_many
+end
