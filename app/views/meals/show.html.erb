@@ -1,2 +1,3 @@
-<h1>You just saved your <%= @meal.name %>! </h1>
+<h1> <%=@meal.name%> meal has been saved! </h1>
 
+<p>This meal was been made by <%= @meal.user.name %> on <%= @meal.date.to_formatted_s(:long)%>.</p>
