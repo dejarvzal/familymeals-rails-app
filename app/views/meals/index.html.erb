@@ -2,6 +2,7 @@
 <ol>
 <% Meal.all.each do |m| %>
 <li> On <%= m.date.try(:to_formatted_s, :long) %>, you prepared <%= m.name %> for <%= m.category %></li>
+<em>Notes:</em> <%=m.notes %>
 <% end %>
 </ol>
 <p>These are all the meals that have been prepared. </p>
