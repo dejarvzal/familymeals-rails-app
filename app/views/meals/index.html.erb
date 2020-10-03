@@ -1,9 +1,8 @@
 <h1>All the meals! </h1>
-
+<ol>
 <% Meal.all.each do |m| %>
-<h3> <%= m.date %> : <%= m.name %> - <%= m.category %></h3>
+<li> On <%= m.date.try(:to_formatted_s, :long) %>, you prepared <%= m.name %> for <%= m.category %></li>
 <% end %>
-
+</ol>
 <p>These are all the meals that have been prepared. </p>
 <%# See about having a filter for category  %>
-<%#Getting unusual error for date.to_formatted_s(:long) "undefined method `to_formatted_s' for nil:NilClass".  Not sure why it suddenly is a problem.  Removing for now %>
