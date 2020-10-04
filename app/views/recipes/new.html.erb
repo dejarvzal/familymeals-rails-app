@@ -1,1 +1,19 @@
 <%= render partial: 'layouts/errors', locals: {object: @recipe}  %>
+<h1>Add a Recipe </h1>
+<div>   
+    <%= form_for(@recipe) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :is_vegan? %>
+        <%= f.check_box :is_vegan %><br><br>
+
+        <%= f.label :cooking_instruction %>
+        <%= f.text_area :instruction %>
+    <div>
+         <%=f.submit "Save Recipe" %>
+    </div>
+    <% end %>
+ </div>
+
+
