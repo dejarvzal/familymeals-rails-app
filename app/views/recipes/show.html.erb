@@ -1,1 +1,4 @@
-show.html.erb
+
+<%= render partial: 'layouts/errors', locals: {object: @recipe}  %>
+
+Your recipe, <%= @recipe.name %>, for <%= @recipe.meal.name %> meal has been saved!
