@@ -1,7 +1,12 @@
 class RecipesController < ApplicationController
 
+    def index
+    
+    end
+
     def new
-        @recipe = Recipe.new
+        @meal = Meal.find_by_id(params[:meal_id])
+        @recipe = @meal.recipes.build
     end
 
     def create
