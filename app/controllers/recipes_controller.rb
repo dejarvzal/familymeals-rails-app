@@ -1,7 +1,11 @@
 class RecipesController < ApplicationController
 
     def index
-    
+        if  @meal = Meal.find_by(params[:meal_id])
+            @recipes = @meal.recipes
+        else
+        @recipes = Recipe.all
+        end
     end
 
     def new
@@ -10,18 +14,18 @@ class RecipesController < ApplicationController
     end
 
     def create
-        @recipe = Recipe.new(recipe_params)
+        @recipe = current_user.recipes.build(recipe_params)
         if @recipe.save
          redirect_to recipe_path(@recipe)
         else
-         flash[:eror] = "Your recipe didn't save correctly."
+        #  flash[:eror] = "Your recipe didn't save correctly."
          render :new
         end
     end
 
-    # def show
-    #     @recipe
-    # end
+    def show
+        @recipe = Recipe.find_by_id(params[:id])
+    end
 
     private
 
