@@ -1,9 +1,11 @@
 <h1>All the meals! </h1>
 <ol>
 <% Meal.all.each do |m| %>
-<li> On <%= m.date.try(:to_formatted_s, :long) %>, you prepared <%= m.name %> for <%= m.category %></li>
-<em>Notes:</em> <%=m.notes %>
+<br><li> On <%= m.date.try(:to_formatted_s, :long) %>, you prepared <%= m.name %> for <%= m.category %></li>
+<em>Notes:</em> <%=m.notes %><br>
+<%= link_to "Add a recipe for this meal", new_meal_recipe_path(m.id) %> <br>
 <% end %>
 </ol>
 <p>These are all the meals that have been prepared. </p>
 <%# See about having a filter for category  %>
+<%# Add rating to this page  %>
