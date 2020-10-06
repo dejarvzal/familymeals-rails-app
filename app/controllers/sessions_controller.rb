@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete(:user_id)
-        redirect_to '/'
+        redirect_to '/', notice: "Logged out!"
     end
 
     def new
@@ -22,5 +22,17 @@ class SessionsController < ApplicationController
             flash[:error] = "Sorry, your login info was incorrect. Please try again"
             redirect_to login_path
         end
+    end
+
+    def omniauth
+        byebug
+        User.find_or_create_by(email: auth[:info][:email])
+        # User.where(email: auth[:info][:email]).first_or_initialize
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
     end
 end
