@@ -25,10 +25,12 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        byebug
-        User.find_or_create_by(email: auth[:info][:email])
-        # User.where(email: auth[:info][:email]).first_or_initialize
+        @user = User.create_by_google_omniauth(auth)
+        session[:user_id] = @user.id 
+        redirect_to user_path(@user)
     end
+
+    
 
     private
 
