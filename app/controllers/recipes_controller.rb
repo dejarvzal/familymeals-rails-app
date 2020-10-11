@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
 
     def index
-        if  @meal = Meal.find_by(params[:meal_id])
+        if  params[:recipe_id]
+            @meal = Meal.find_by(params[:meal_id])
             @recipes = @meal.recipes
         else
         @recipes = Recipe.all
@@ -9,11 +10,12 @@ class RecipesController < ApplicationController
     end
 
     def new
-        @meal = Meal.find_by(params[:meal_id])
+        @meal = Meal.find_by(id: params[:meal_id])
         @recipe = @meal.recipes.build
     end
 
     def create
+        binding.pry
         @recipe = current_user.recipes.build(recipe_params)
         if @recipe.save
          redirect_to recipe_path(@recipe)
@@ -24,13 +26,15 @@ class RecipesController < ApplicationController
     end
 
     def show
+        
         @recipe = Recipe.find_by_id(params[:id])
+       
     end
 
     private
 
     def recipe_params
-        params.require(:recipe).permit(:name, :instruction, :is_vegan, :meal_id)
+        params.require(:recipe).permit(:meal_id, :name, :is_vegan, :instruction)
     end
 
 end
