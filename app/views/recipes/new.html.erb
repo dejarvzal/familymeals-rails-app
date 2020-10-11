@@ -1,8 +1,10 @@
 <%= render partial: 'layouts/errors', locals: {object: @recipe}  %>
 
-<h1>Add a Recipe for <%= @meal.name %> </h1>
-<div>   
+<h1>Add a Recipe for <%= @recipe.meal.name if @recipe.meal%> </h1>
+<div>  
+
     <%= form_for(@recipe) do |f| %>
+    <%= f.hidden_field :meal_id, :value => @meal.id %>
         <%= f.label :name %>
         <%= f.text_field :name %>
 
@@ -11,8 +13,10 @@
 
         <%= f.label :cooking_instruction %>
         <%= f.text_area :instruction %>
+        
     <div>
-         <%=f.submit "Save Recipe" %>
+    <% f.hidden_field :meal_id %>
+    <%=f.submit "Save Recipe" %>
     </div>
     <% end %>
  </div>
