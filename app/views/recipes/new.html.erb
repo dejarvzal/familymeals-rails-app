@@ -2,23 +2,8 @@
 
 <h1>Add a Recipe for <%= @recipe.meal.name if @recipe.meal%> </h1>
 <div>  
+<%= render partial: 'recipe', object: @recipe  %>
 
-    <%= form_for(@recipe) do |f| %>
-    <%= f.hidden_field :meal_id, :value => @meal.id %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-
-        <%= f.label :is_vegan? %>
-        <%= f.check_box :is_vegan %><br><br>
-
-        <%= f.label :cooking_instruction %>
-        <%= f.text_area :instruction %>
-        
-    <div>
-    <% f.hidden_field :meal_id %>
-    <%=f.submit "Save Recipe" %>
-    </div>
-    <% end %>
  </div>
 
 
