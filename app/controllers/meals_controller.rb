@@ -25,7 +25,12 @@ class MealsController < ApplicationController
     end
 
     def edit
+        @meal = Meal.find_by_id(params[:id])
         render :edit
+    end
+
+    def update
+
     end
 
     private
