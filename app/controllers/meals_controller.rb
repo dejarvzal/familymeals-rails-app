@@ -14,7 +14,7 @@ class MealsController < ApplicationController
     end
 
     def create
-        #need to be logged in before creating a meal
+        binding.pry
         @meal = Meal.new(meal_params)
         @meal.user_id = session[:user_id]
         if @meal.save
@@ -24,10 +24,14 @@ class MealsController < ApplicationController
         end
     end
 
+    def edit
+        render :edit
+    end
+
     private
 
     def meal_params
-        params.require(:meal).permit(:name, :category, :date, :notes, :rating, :recipe_id, recipes_attributes: [:name, :is_vegan, :instruction])
+        params.require(:meal).permit(:name, :category, :date, :notes, :rating, :recipe_id, recipes_attributes: [:recipe_id, :name, :is_vegan, :instruction])
     end
 
   
