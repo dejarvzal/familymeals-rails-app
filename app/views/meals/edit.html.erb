@@ -1,1 +1,21 @@
-Edit a meal
+
+<h1> Edit <%= @meal.name %>!</h1> 
+
+<%= render partial: 'layouts/errors', locals: {object: @meal}  %>
+
+
+ <%= form_for @meal do |f| %>
+ <div>
+    <strong><%= f.label :rate_this_meal_1_to_5 %></strong>
+    <%= f.number_field :rating, min:0, max:5 %> <br><br>
+    <%=f.submit "Save Rating" %>
+ </div>
+ <% end %>
+
+<div>  
+<%= render partial: 'meal', object: @meal  %>
+</div>
+
+<%# Want to get this to display as star ratings or something similar.. Look into using Bootstrap for this. Also add to Edit view page%>
+
+ 
