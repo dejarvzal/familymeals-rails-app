@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
+  
+  
   <head>
-    <title>FamilyMealRailsApp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Family Meal Rails App!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,5 +22,21 @@
 
   <body>
     <%= yield %>
+    
+    <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Family Meals Rails App!
+        </h1>
+        <p class="subtitle">
+          The place to keep track of your meals each week! 
+        </p>
+        <img>Picture here<img>
+      </div>
+    </div>
+  </section>
+  
+
   </body>
 </html>
