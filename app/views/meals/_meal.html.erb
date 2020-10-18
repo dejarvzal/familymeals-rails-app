@@ -1,0 +1,38 @@
+
+<%= form_for @meal do |f| %>
+ <div>
+    <%= f.label :category %> 
+     <%= f.select :category, [["Select"], ["Breakfast"], ["Lunch"], ["Brunch"], ["Dinner"]]%><br><br>
+ </div>
+
+ <div>
+    <%= f.label :meal %>
+    <%= f.text_field :name %><br><br>
+ </div>
+ <div>
+    <%= f.label :date_prepared %>
+    <%= f.date_field :date %><br><br>
+ </div>
+ <div>
+    <%= f.label :notes %>
+    <%= f.text_area :notes %><br><br>
+ </div>
+ <p> Select a Recipe that already exists: </p> <%#No longer required to be filled in, but leaving on the form for now %>
+ <div>
+    <%= f.collection_select :recipe_id, Recipe.all, :id, :name, {prompt: "Choose an existing Recipe"} %>
+ </div>
+ <p><strong> Or create a new Recipe: </strong></p> 
+
+ <div>   
+    <%= f.fields_for :recipes do |r|  %>
+        <%= r.label :name %>
+        <%= r.text_field :name %>
+        <%= r.label :is_vegan? %>
+        <%= r.check_box :is_vegan %><br><br>
+        <%= r.label :cooking_instruction %>
+        <%= r.text_area :instruction %>
+    <% end %>
+ </div>
+
+ <%=f.submit "Save Meal" %>
+ <% end %>
