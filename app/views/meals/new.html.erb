@@ -1,46 +1,9 @@
 <h1> Create a New Meal!</h1> 
 
 <%= render partial: 'layouts/errors', locals: {object: @meal}  %>
+<div>  
+<%= render partial: 'meal', object: @meal  %>
+</div>
 
 <%# Do I need to specify that the meal is being saved for a specific user? %>
-<%= form_for @meal do |f| %>
- <div>
-    <%= f.label :category %> 
-     <%= f.select :category, [["Select"], ["Breakfast"], ["Lunch"], ["Brunch"], ["Dinner"]]%><br><br>
- </div>
 
- <div>
-    <%= f.label :meal %>
-    <%= f.text_field :name %><br><br>
- </div>
- <div>
-    <%= f.label :date_prepared %>
-    <%= f.date_field :date %><br><br>
- </div>
- <div>
-    <%= f.label :notes %>
-    <%= f.text_area :notes %><br><br>
- </div>
- <p> Select a Recipe that already exists: </p>
- <div>
-    <%= f.collection_select :recipe_id, Recipe.all, :id, :name, {prompt: "Choose an existing Recipe"} %>
- </div>
- <p> Or create a new Recipe: </p> <%#nested form here %>
- <%#wondering if I can use a partial here for new recipe %>
- <div>     
-    <%= f.fields_for :recipes do |r|  %>
-        <%= r.label :name %>
-        <%= r.text_field :name %>
-        <%= r.label :is_vegan? %>
-        <%= r.check_box :is_vegan %><br><br>
-        <%= r.label :cooking_instruction %>
-        <%= r.text_area :instruction %>
-    <% end %>
- </div>
-<%# Want to get this to display as star ratings or something similar.. Look into using Bootstrap for this. Also add to Edit view page%>
- <div>
-    <%= f.label :rating_1_to_5 %>
-    <%= f.check_box :rating %> <br><br>
- </div>
- <%=f.submit "Save Meal" %>
- <% end %>
