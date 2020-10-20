@@ -15,28 +15,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div> 
+  <div class="container"> 
     <%= link_to "Log Out", logout_path, method: :delete %>
     <%= link_to "New Meal", new_meal_path %>
   </div>
 
   <body>
     <%= yield %>
-    
-    <section class="hero">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Family Meals Rails App!
-        </h1>
-        <p class="subtitle">
-          The place to keep track of your meals each week! 
-        </p>
-        <img>Picture here<img>
-      </div>
-    </div>
-  </section>
-  
-
   </body>
 </html>
