@@ -10,25 +10,21 @@ class RecipesController < ApplicationController
     end
 
     def new
-        @meal = Meal.find_by(id: params[:meal_id])
+        @meal = Meal.find(params[:meal_id])
         @recipe = @meal.recipes.build
     end
 
     def create
-        binding.pry
         @recipe = current_user.recipes.build(recipe_params)
         if @recipe.save
          redirect_to recipe_path(@recipe)
         else
-        #  flash[:eror] = "Your recipe didn't save correctly."
          render :new
         end
     end
 
     def show
-        
         @recipe = Recipe.find_by_id(params[:id])
-       
     end
 
     private
