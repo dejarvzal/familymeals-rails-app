@@ -1,4 +1,5 @@
 class MealsController < ApplicationController
+    layout "general"
 
     def index
         @meals = Meal.all
@@ -14,7 +15,7 @@ class MealsController < ApplicationController
     end
 
     def create
-        binding.pry
+        # binding.pry
         @meal = Meal.new(meal_params)
         @meal.user_id = session[:user_id]
         if @meal.save
@@ -32,6 +33,7 @@ class MealsController < ApplicationController
     def update
         @meal = Meal.find_by_id(params[:id])
         @meal.update(meal_params)
+        # @meal.user_id = session[:user_id]
         redirect_to meal_path(@meal) 
     end
 
