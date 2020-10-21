@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+   layout "general"
+   
     def index
         @users = User.all
     end
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user_id
         redirect_to user_path(@user)
        else
-        flash[:error] = "Sorry, please valid info. Please try again"
+        flash[:error] = "Sorry, please enter valid info. Please try again"
         render :new
        end
     end
@@ -21,6 +23,8 @@ class UsersController < ApplicationController
     def show
         @user = User.find_by(id: params[:id])
     end
+
+
 
     private
 
