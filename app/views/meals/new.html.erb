@@ -1,8 +1,14 @@
-<h1> Create a New Meal!</h1> 
+<h1 class="subtitle has-text-black"> Create a New Meal!</h1> 
 
 <%= render partial: 'layouts/errors', locals: {object: @meal}  %>
-<div>  
-<%= render partial: 'meal', object: @meal  %>
+
+<div class="columns">  
+    <div class="column">  
+    <%= render partial: 'meal', object: @meal  %>
+    </div>
+    <div class="column">  
+        <%= image_tag("mealprep3.jpg", alt: "New Meal" ) %>
+    </div>
 </div>
 
 <%# Do I need to specify that the meal is being saved for a specific user? %>
