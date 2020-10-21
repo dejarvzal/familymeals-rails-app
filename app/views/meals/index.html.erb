@@ -3,7 +3,7 @@
 <% Meal.all.each do |m| %>
 <br><li> On <%= m.date.try(:to_formatted_s, :long) %>, you prepared <%= m.name %> for <%= m.category %></li>
 <em>Notes:</em> <%=m.notes %><br>
-This meal is rated <%= m.rating %> stars! <br>
+<strong>This meal is rated <%= m.rating %> stars!</strong> <br>
 <%= link_to "Add a recipe for this meal", new_meal_recipe_path(m.id) %> <br>
 <%= link_to "Edit this meal", edit_meal_path(m.id) %> <br>
 <%= link_to "Delete this meal", m, method: :delete, data:{confirm: "Are you sure you want to delete this meal?"}  %><br>
