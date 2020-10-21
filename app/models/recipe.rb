@@ -4,6 +4,10 @@ class Recipe < ApplicationRecord
     has_many :ingredients, :dependent => :destroy
   
     # validates :name, presence: true
-    # validates :name, :instruction, presence: true
+    validates :name, :instruction, presence: true
+
+    # def current_meal
+    #     Meal.find_by_id(:meal_id)
+    # end
 
 end
