@@ -1,5 +1,6 @@
-<h1>All the Recipes </h1>
+<h1>Here's the list of all Recipes</h1>
 
-<% @recipes.each do |r| %>
-<%= r.name %> <br>
+<% Recipe.all.each do |r| %>
+<%# @recipe.meal.name if @recipe.meal%> 
+    <%= r.name %> <br>
 <% end  %>
