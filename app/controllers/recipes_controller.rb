@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
 
+    layout "general"
+    
     def index
         if  params[:recipe_id]
             @meal = Meal.find_by(params[:meal_id])
