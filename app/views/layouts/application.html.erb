@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Family Meal Rails App!</title>
+    <title>Nyam Um</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <%= csrf_meta_tags %>
@@ -14,8 +14,25 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+<div class="container">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container level">
+        <div class="column level-item has-text-centered">
+          <%= image_tag("nyam-um.png", alt: "Nyam Um") %>
+           <p class="subtitle has-text-black">
+            What have you eaten? When will you eat? 
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 
   <body>
     <%= yield %>
   </body>
+
 </html>
