@@ -1,14 +1,32 @@
-<h1>All the meals! </h1>
-<ol>
-<% Meal.all.each do |m| %>
-<br><li> On <%= m.date.try(:to_formatted_s, :long) %>, you prepared <%= m.name %> for <%= m.category %></li>
-<em>Notes:</em> <%=m.notes %><br>
-<strong>This meal is rated <%= m.rating %> stars!</strong> <br>
-<%= link_to "Add a recipe for this meal", new_meal_recipe_path(m.id) %> <br>
-<%= link_to "Edit this meal", edit_meal_path(m.id) %> <br>
-<%= link_to "Delete this meal", m, method: :delete, data:{confirm: "Are you sure you want to delete this meal?"}  %><br>
-<% end %>
-</ol>
+<h1 class="title">All the meals! </h1>
+   <% Meal.all.each do |m| %>
+      
+    <div class="columns">
+      <div class="column is-one-third">
+       <div class="card">
+        <div class="card-content">
+          <p class="title is-5"><%= m.name %> </p>
+            Date Prepared: <%= m.date.try(:to_formatted_s, :long) %> for <%= m.category %><br>
+           <strong>This meal is rated <%= m.rating %> stars!</strong> <br>
+                <%= link_to "Add a recipe for this meal", new_meal_recipe_path(m.id) %> <br>
+                <%= link_to "Edit this meal", edit_meal_path(m.id) %> <br>
+                <%= link_to "Delete this meal", m, method: :delete, data:{confirm: "Are you sure you want to delete this meal?"}  %><br>
+        </div>
+       </div>
+      </div>
+   
+
+      <div class="column is-one-quarter">
+       <div class="card">
+        <div class="card-content">
+          xx</div>
+       </div>
+      </div>
+    </div>
+   <% end %>
+    
+
+
 <p>These are all the meals that have been prepared. </p>
 <%# See about having a filter for category  %>
 <%# Add rating to this page  %>
