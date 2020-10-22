@@ -1,36 +1,24 @@
 
-<div class="container has-background-link-light">
 
-  <section class="hero is-info">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          Welcome to Family Meals!
-        </h1>
-        <p class="subtitle has-text-black">
-          Keep track of your prepared meals each week. 
-        </p>
-      </div>
-    </div>
-  </section>
-    
+
+<div class="container has-background-success-light">    
     <div class="container">
-      <div class="columns  is-vcentered is-hcentered">
-        <div class="column">
-          <%= image_tag("FamilyEating.jpg", alt: "Family Meal" ) %>
+      <div class="columns level-item has-text-centered">
+        <div class="column ">
+          <%= image_tag("FamilyEating.jpg", alt: "Family Meal") %>
         </div>
         <div class="column">
-          <button class="button"><%= link_to "Login", login_path %></button> 
-          <button class="button"><%= link_to "Signup", signup_path %></button>
-          <button class="button"><%= link_to "Sign in with Google", "/auth/google_oauth2" %></button>
+          <%= link_to "Login", login_path, class: "button is-success" %>
+          <%= link_to "Signup", signup_path, class: "button is-success" %>
+          <%= link_to "Sign in with Google", "/auth/google_oauth2", class: "button is-success" %>
         </div>
       </div>
     </div>
 
-    <div class="columns is-vcentered">  
-      <div class="column"><strong>Plan meals:</strong><br><em>Organize your week by adding recipes to a schedule</em></div>
-      <div class="column"><strong>Create menus:</strong><br><em>Add more than one recipe to a meal</em></div>
-      <div class="column"><strong>Manage recipes:</strong><br><em>Create and edit your recipes</em></div>
+    <div class="columns level-item has-text-centered">  
+      <div class="column subtitle has-text-black"><strong>Plan meals:</strong><br><em>Organize your week with a meal schedule</em></div>
+      <div class="column subtitle has-text-black"><strong>Create menus:</strong><br><em>Add more than one recipe to a meal</em></div>
+      <div class="column subtitle has-text-black"><strong>Manage recipes:</strong><br><em>Create and edit your recipes</em></div>
     </div>
 
 </div>
