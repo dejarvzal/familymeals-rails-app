@@ -1,6 +1,21 @@
-<h1>Here's the list of all Recipes</h1>
-
-<% Recipe.all.each do |r| %>
-<%# @recipe.meal.name if @recipe.meal%> 
-    <%= r.name %> <br>
-<% end  %>
+<section>
+  <h3 class="title is-5">All Recipes</h3>
+  <p class="sub-title"> Yummy recipes!</p>
+</section>
+<div class="columns">
+    <div class="column">
+        <p>
+       Add picture here
+        </p>
+    </div>
+    
+    <div class="column">
+        <p>
+        <% Recipe.all.each do |r| %>
+        <%# @recipe.meal.name if @recipe.meal%> 
+        <%= link_to r.name, recipe_path(r.id), class: "button is-link" %>
+        <% end  %>
+        </p>
+    </div>
+   
+</div>
