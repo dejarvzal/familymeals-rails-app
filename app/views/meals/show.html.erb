@@ -2,7 +2,7 @@
 
 <h2>You used the <%# @recipe.name %> recipe to make this meal.</h2>
 <%# Need to get the recipe name to showup properly  %>
-<p>This meal was prepared by <%= @meal.user.name %> on <%= @meal.date.to_formatted_s(:long)%>.</p>
+<p>This meal was prepared by <%# @meal.user.name %> on <%= @meal.date.to_formatted_s(:long)%>.</p>
 <p> Notes: <%= @meal.notes %> </p>
 
 <%= link_to "Edit Meal", edit_meal_path(@meal.id) %>
