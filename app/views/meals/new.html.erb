@@ -1,6 +1,8 @@
-<h1 class="subtitle has-text-black"> Create a New Meal!</h1> 
+<h1 class="subtitle has-text-white has-background-success-dark has-text-centered"><strong> Create a New Meal!</strong></h1> 
 
-<%= render partial: 'layouts/errors', locals: {object: @meal}  %>
+<div class="container level-item has-text-centered has-text-black-bis has-background-danger-dark">
+  <em><%= render partial: 'layouts/errors', locals: {object: @meal}  %></em>
+</div><br>
 
 <div class="columns">  
     <div class="column">  
