@@ -6,8 +6,8 @@
       <div class="columns  level-item has-text-centered">
         <div class="column is-half">
             <div>
-                <h1 class="title">Login! </h1>
-                <p class="text is-danger"><%= flash[:error] %> </p>
+                <h1 class="title">Login </h1>
+                <p class="text has-text-black-bis has-background-danger-dark"><strong><%= flash[:error] %></strong></p>
                 <%= form_for (:user) do |f| %>
                     <div class="field m-0">
                       <%= f.text_field :name, class:"input is-primary", placeholder: "Name" %><br><br>
