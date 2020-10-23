@@ -1,17 +1,47 @@
-<h1>Sign up! </h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @user}  %>
+<div class="container level-item has-text-centered has-text-black-bis has-background-danger-dark">
+  <em><%= render partial: 'layouts/errors', locals: {object: @user}  %></em>
+</div><br>
 
-<%= form_for (@user) do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br><br>
+<div class="container has-background-success-light has-text-">    
+    <div class="container">
+      <div class="columns  level-item has-text-centered">
+        <div class="column is-half">
+            <div>
+                <h1 class="title">Sign Up</h1>
+                <p class="text is-danger"><%= flash[:error] %> </p>
+                <%= form_for (:user) do |f| %>
+                    <div class="field m-0">
+                      <p><%= f.text_field :name, class:"input is-primary", placeholder: "Name" %></p><br>
+                    </div>
+                      
+                    <div class="field">
+                      <p class="control has-icons-left has-icons-right">
+                        <%= f.email_field :email_address, class:"input is-primary", placeholder: "Email Address" %>
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                          <i class="fas fa-check"></i>
+                        </span>
+                      </p>
+                    </div>
 
-<%= f.label :email_address %>
-<%= f.email_field :email_address %>
+                    <div class="field">
+                      <p class="control has-icons-left">
+                        <%= f.password_field :password, class:"input is-primary", placeholder: "Password" %> <br><br>
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-lock"></i>
+                        </span>
+                      </p>
+                    </div>
 
-<%= f.label :password %>
-<%= f.password_field :password %> <br><br>
-
-<%= f.submit "Sign Up" %>
-
-<% end %>
+                    <div class="control">
+                      <%=f.submit "Sign Up", class: "button is-success" %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
