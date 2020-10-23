@@ -15,25 +15,27 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<div class="container has-background-link-light">
+<div class="container">
 
   <div class="container"> 
     <%= link_to "Log Out", logout_path, method: :delete %>
     <%= link_to "New Meal", new_meal_path %>
   </div>
 
-  <section class="hero is-info">
+<div class="container">
+  <section class="hero">
     <div class="hero-body">
-      <div class="container">
-        <h1 class="title has-text-black">
-          Nyam
-        </h1>
-        <p class="subtitle has-text-white"><em>
-          Keep track of your prepared meals each week.</em> 
-        </p>
+      <div class="container level">
+        <div class="column level-item has-text-centered">
+          <%= image_tag("nyam-um.png", alt: "Nyam Um") %>
+           <p class="subtitle has-text-black">
+            What have you eaten? When will you eat? 
+          </p>
+        </div>
       </div>
     </div>
   </section>
+</div>
 
   <body>
     <%= yield %>
