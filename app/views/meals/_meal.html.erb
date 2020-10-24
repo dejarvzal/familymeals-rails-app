@@ -1,56 +1,66 @@
 <div class="container">
 <%= form_for @meal do |f| %>
-
-   <div class="field has-addons">
+   <p class="subtitle has-text-centered"><strong> Select a Meal Category: </strong></p>
+   <div class="dropdown field has-addons is-active">
       <div class="control is-expanded">
-         <div class="select is-fullwidth">
-            <%#f.label :category %> 
-            <%= f.select :category, [["Category"],["Breakfast"], ["Lunch"], ["Brunch"], ["Dinner"]]%>
+         <div class="select is-fullwidth dropdown-content-background-color	">
+            <%= f.select :category, [[""],["Breakfast"], ["Lunch"], ["Brunch"], ["Dinner"]]%>
          </div>
-      </div>
-      <div class="control">
-         <button type="submit" class="button is-info">Select</button>
       </div>
    </div>
 
- 
    <div class="field has-addons">
-      <div class="control is-expanded">
-         <div class="select is-fullwidth">
-            <label><strong> <%= f.label :meal %></strong></label>
-            <%= f.text_field :name %><br><br>
+         <div class="control is-expanded is-fullwidth">
+            <%= f.text_field :name, placeholder: "Meal Name", type: "text", class:"input is-normal"%>
          </div>
-      </div>
    </div>
 
  <div>
-    <%= f.label :date_prepared %>
+    <%= f.label :date_prepared, class:"subtitle has-text-left", type:"date" %>
     <%= f.date_field :date %><br><br>
  </div>
+ 
  <div>
-    <%= f.label :notes %>
-    <%= f.text_area :notes %><br><br>
- </div>
- <hr>
- <p> Select a Recipe that already exists: </p> <%#No longer required to be filled in, but leaving on the form for now %>
- <div>
-    <%= f.collection_select :recipe_id, Recipe.all, :id, :name, {prompt: "Choose an existing Recipe"} %>
- </div>
- <p><strong> Or create a new Recipe: </strong></p> 
-
- <div>   
-    <%= f.fields_for :recipes do |r|  %>
-        <%= r.label :name %>
-        <%= r.text_field :name %>
-        <%= r.label :is_vegan? %>
-        <%= r.check_box :is_vegan %><br><br>
-        <%= r.label :cooking_instruction %>
-        <%= r.text_area :instruction %>
-    <% end %>
+    <%= f.text_area :notes, placeholder: "Notes", rows: "2", class:"textarea is-normal" %><br><br>
  </div>
 
-   <div class="control">
-      <%=f.submit "Save Meal", class: "button is-link" %>
+  <p class="subtitle has-text-centered"><strong> Select a Recipe that already exists: </strong></p>
+ <%#No longer required to be filled in, but leaving on the form for now %>
+<div class="columns"> 
+   <div class="column">
    </div>
+ <div class="column is-three-quarters">
+   <div class="dropdown field has-addons is-active">
+      <div class="control is-expanded">
+         <div class="select is-fullwidth dropdown-content-background-color	">
+           <%= f.collection_select :recipe_id, Recipe.all, :id, :name, {prompt: ""}, placeholder: "Recipe" %>
+         </div>
+      </div>
+   </div>
+
+  <p class="subtitle has-text-centered"><strong> Or create a new Recipe: </strong></p>
+
+  <div>   
+    <%= f.fields_for :recipes do |r|  %>
+      <div class="columns">
+         <div class="column">
+            <%= r.text_field :name, placeholder: "Recipe Name", type: "text", class:"input is-normal"%>
+         </div>
+         <div class="column">
+            <%= r.label :is_vegan? %>
+            <%= r.check_box :is_vegan, type: "checkbox" %>
+         </div><br>
+      </div>
+      <%= r.text_area :instruction, placeholder: "Cooking Instruction", rows: "5", class:"textarea is-normal" %>
+    <% end %>
+   </div>
+  </div>
+   <div class="column">
+   </div>
+  </div>
+
+ <div class="control has-text-centered">
+   <%=f.submit "Save Meal", class: "button is-success" %>
+ </div>
  <% end %>
 </div>
