@@ -1,5 +1,8 @@
 
-<h1> Edit <%= @meal.name %>!</h1> 
+<div class="container has-background-warning-light">
+    <div class="container has-background-success"><br>
+    <h1 class="title is-3 has-text-warning has-text-centered has-text-weight-bold"><strong>  Edit <%= @meal.name %>!</strong></h1><br> 
+    </div>
 
 <%= render partial: 'layouts/errors', locals: {object: @meal}  %>
 
@@ -7,15 +10,31 @@
  <%= form_for @meal do |f| %>
  <div>
     <strong><%= f.label :rate_this_meal_1_to_5 %></strong>
-    <%= f.number_field :rating, min:0, max:5 %> <br><br>
+    <%= f.number_field :rating, type:"number", min:0, max:5 %> <br><br>
+    <div class="rating" role="optgroup">
+      <!-- in Rails just use 1.upto(5) -->  
+      <i class="fa fa-star-o fa-2x rating-star" id="rating-1" data-rating="1" tabindex="0" aria-label="Rate as one out of 5 stars" role="radio"></i>
+      <i class="fa fa-star-o fa-2x rating-star" id="rating-2" data-rating="2" tabindex="0" aria-label="Rate as two out of 5 stars" role="radio"></i>
+      <i class="fa fa-star-o fa-2x rating-star" id="rating-3" data-rating="3" tabindex="0" aria-label="Rate as three out of 5 stars" role="radio"></i>
+      <i class="fa fa-star-o fa-2x rating-star" id="rating-4" data-rating="4" tabindex="0" aria-label="Rate as four out of 5 stars" role="radio"></i>
+      <i class="fa fa-star-o fa-2x rating-star" id="rating-5" data-rating="5" tabindex="0" aria-label="Rate as five out of 5 stars" role="radio"></i>
+    </div>
+
     <%=f.submit "Save Rating" %>
  </div>
  <% end %>
 
-<div>  
-<%= render partial: 'meal', object: @meal  %>
+<div class="columns">  
+        <div class="column">  
+        <%= render partial: 'meal', object: @meal  %>
+        </div>
+        <div class="column">
+            <div class="image is-4by5">  
+            <%= image_tag("mealprep3.jpg", alt: "New Meal", class:"frame") %>
+            </div>
+        </div>
+    </div>
 </div>
-
 <%# Want to get this to display as star ratings or something similar.. Look into using Bootstrap for this. Also add to Edit view page%>
 
  
