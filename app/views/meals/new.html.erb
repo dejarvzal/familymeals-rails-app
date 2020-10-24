@@ -1,6 +1,6 @@
 <div class="container has-background-success-light">
-    <div class="container">
-    <h1 class="subtitle has-text-white has-text-centered"><strong> New Meal!</strong></h1> 
+    <div class="container has-background-success"><br>
+    <h1 class="title is-3 has-text-warning has-text-centered has-text-weight-bold"><strong> Create Your New Meal!</strong></h1><br> 
     </div>
 
     <div class="container level-item has-text-centered has-text-black-bis has-background-danger-dark">
@@ -11,8 +11,10 @@
         <div class="column">  
         <%= render partial: 'meal', object: @meal  %>
         </div>
-        <div class="column">  
-            <%= image_tag("mealprep3.jpg", alt: "New Meal" ) %>
+        <div class="column">
+            <div class="image is-4by5">  
+            <%= image_tag("mealprep3.jpg", alt: "New Meal", class:"frame") %>
+            </div>
         </div>
     </div>
 </div>
