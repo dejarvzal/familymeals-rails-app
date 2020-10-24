@@ -1,7 +1,7 @@
 <div class="container">
 <%= form_for @meal do |f| %>
    <p class="subtitle has-text-centered"><strong> Select a Meal Category: </strong></p>
-   <div class="dropdown field has-addons is-active">
+   <div class="dropdown field has-addons is-active is-success">
       <div class="control is-expanded">
          <div class="select is-fullwidth dropdown-content-background-color	">
             <%= f.select :category, [[""],["Breakfast"], ["Lunch"], ["Brunch"], ["Dinner"]]%>
@@ -16,11 +16,7 @@
    </div>
 
  <div>
-    <%= f.label :date_prepared, class:"subtitle has-text-left", type:"date" %>
-    <%= f.date_field :date %><br><br>
- </div>
- 
- <div>
+    <p class="subtitle has-text-centered"><strong> <%= f.label :date_prepared, type:"date" %>:  </strong><%= f.date_field :date %></p>
     <%= f.text_area :notes, placeholder: "Notes", rows: "2", class:"textarea is-normal" %><br><br>
  </div>
 
