@@ -15,11 +15,10 @@ class MealsController < ApplicationController
     end
 
     def create
-        # binding.pry
         @meal = Meal.new(meal_params)
         @meal.user_id = session[:user_id]
         if @meal.save
-         redirect_to meal_path(@meal)
+            redirect_to meal_path(@meal), notice: "Your #{@meal.name} meal has been saved!"
         else
          render :new  
         end
