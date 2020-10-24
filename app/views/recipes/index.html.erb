@@ -11,9 +11,8 @@
     
     <div class="column">
         <p>
-        <% Recipe.all.each do |r| %>
-        <%# @recipe.meal.name if @recipe.meal%> 
-        <%= link_to r.name, recipe_path(r.id), class: "button is-link" %>
+          <% @recipes.each do |r| %>
+          <%= link_to r.name, recipe_path(r.id), class: "button is-link" %>
         <% end  %>
         </p>
     </div>
