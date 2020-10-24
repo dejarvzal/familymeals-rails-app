@@ -20,7 +20,7 @@
   <div class="container"> 
     <nav class="level">
       <p class="level-item has-text-centered">
-        <%= link_to "Log Out", logout_path, method: :delete %>
+        <%= link_to "All Meals", meals_path %>
       </p>
       <p class="level-item has-text-centered">
         <%= link_to "New Meal", new_meal_path %>
@@ -29,11 +29,12 @@
         <%= image_tag("nyam-um.png", alt: "Nyam Um") %>
       </p>
       <p class="level-item has-text-centered">
-        <%= link_to "Log Out", logout_path, method: :delete %>
+        <%= link_to "All Recipes", recipes_path %>
       </p>
       <p class="level-item has-text-centered">
-        <%= link_to "New Meal", new_meal_path %>
+        <%= link_to "Log Out", logout_path, method: :delete %>
       </p>
+
     </nav>
   </div><br>
 
