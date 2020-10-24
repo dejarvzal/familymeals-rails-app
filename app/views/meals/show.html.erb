@@ -1,8 +1,46 @@
-<h1> <%=@meal.name%> meal has been saved! </h1>
 
-<h2>You used the <%# @recipe.name %> recipe to make this meal.</h2>
-<%# Need to get the recipe name to showup properly  %>
-<p>This meal was prepared by <%# @meal.user.name %> on <%= @meal.date.to_formatted_s(:long)%>.</p>
-<p> Notes: <%= @meal.notes %> </p>
 
-<%= link_to "Edit Meal", edit_meal_path(@meal.id) %>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-info">
+    <h1 class= "has-centered-text"> <%= msg %> </h1>
+  </div>
+<% end %>
+
+<div class="container has-background-danger-light">
+    <div class="container has-background-danger-light"><br>
+       <h1 class="title is-3 has-text-success-dark has-text-centered has-text-weight-bold"><strong> Here's your <%= @meal.name %> Meal!</strong></h1><br> 
+    </div>
+
+    <div class="container level-item has-text-centered has-text-black-bis has-background-danger-dark">
+      <em><%= render partial: 'layouts/errors', locals: {object: @meal}  %></em>
+    </div><br>
+
+    <div class="columns">  
+        <div class="column">  
+            <p  class="has-text-centered">This meal was prepared by you <%# @meal.user.name %> on <%= @meal.date.to_formatted_s(:long)%>.</p><br>
+            <%# Need to get the recipe name to showup properly  %>
+            <p class="subtitle has-text-success-dark has-text-left has-text-weight-bold"> Recipes used: </p>
+            <p> <%= @meal.name %> </p><br>
+            <p class="subtitle has-text-success-dark has-text-left has-text-weight-bold"> Notes: </p>
+            <p> <%= @meal.notes %> </p><br>
+            
+            <div class="button is-success has-text-centered">
+            <%= link_to "Edit Meal", edit_meal_path(@meal.id) %>
+               <%# submit "Edit Meal", class: "button is-success" %>
+            </div>
+        </div>
+        <div class="column">
+            <div class="image">  
+            <% if @meal.category == "Dinner"  %>
+                <%= image_tag("dinner1.jpg", alt: "Dinner", class:"is-rounded") %>
+            <% elsif @meal.category == "Lunch"  %>
+                <%= image_tag("Lunch.jpg", alt: "Lunch", class:"is-rounded") %>
+            <% elsif @meal.category == "Brunch"  %>
+                <%= image_tag("Brunch.jpg", alt: "Brunch", class:"is-rounded") %>
+            <% else @meal.category == "Breakfast"  %>
+                <%= image_tag("Breakfast.jpg", alt: "Breakfast", class:"is-rounded") %>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>
