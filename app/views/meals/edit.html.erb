@@ -1,7 +1,7 @@
 
 <div class="container has-background-warning-light">
-    <div class="container has-background-success"><br>
-    <h1 class="title is-3 has-text-warning has-text-centered has-text-weight-bold"><strong>  Edit <%= @meal.name %>!</strong></h1><br> 
+    <div class="container has-background-warning-light"><br>
+      <h1 class="title is-3 has-text-success-dark has-text-centered has-text-weight-bold"><strong>  Edit your <%= @meal.name %> <%= @meal.category %> Meal!</strong></h1><br> 
     </div>
 
 <%= render partial: 'layouts/errors', locals: {object: @meal}  %>
