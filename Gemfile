@@ -32,6 +32,9 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 
+#Bulma for calender
+gem 'bulma-extensions-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
