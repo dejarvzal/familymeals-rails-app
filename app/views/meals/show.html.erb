@@ -25,8 +25,11 @@
             <p> <%= @meal.notes %> </p><br>
             
             <div class="button is-success has-text-centered">
-            <%= link_to "Edit Meal", edit_meal_path(@meal.id) %>
+                <%= link_to "Edit Meal", edit_meal_path(@meal.id) %>
                <%# submit "Edit Meal", class: "button is-success" %>
+            </div>
+            <div class="button is-success has-text-centered">
+                <%= link_to "Add Recipe", new_meal_recipe_path(@meal.id)%> <br>
             </div>
         </div>
         <div class="column">
