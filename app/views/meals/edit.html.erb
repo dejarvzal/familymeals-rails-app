@@ -19,18 +19,19 @@
       <i class="fa fa-star-o fa-2x rating-star" id="rating-4" data-rating="4" tabindex="0" aria-label="Rate as four out of 5 stars" role="radio"></i>
       <i class="fa fa-star-o fa-2x rating-star" id="rating-5" data-rating="5" tabindex="0" aria-label="Rate as five out of 5 stars" role="radio"></i>
     </div>
-
-    <%=f.submit "Save Rating" %>
+    <%# Need to get star ratings to show up properly  %>
+    <%=f.submit "Save Rating", class: "button is-success" %>
+    <%# submit "Edit Meal", class: "button is-success" %>
  </div>
  <% end %>
 
 <div class="columns">  
-        <div class="column">  
+        <div class="column">   
         <%= render partial: 'meal', object: @meal  %>
         </div>
         <div class="column">
             <div class="image is-4by5">  
-            <%= image_tag("mealprep3.jpg", alt: "New Meal", class:"frame") %>
+            <%= image_tag("mealprep3.jpg", alt: "New Meal", class:"") %>
             </div>
         </div>
     </div>
