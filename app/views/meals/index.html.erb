@@ -2,7 +2,7 @@
 <div class="container has-background-warning-light">
  <h1 class="title is-3 has-text-success-dark has-text-centered has-text-weight-bold">All the meals! </h1>
   <%# Add filter to narrow down meals %>
-  <div class="columns">
+  <div class="columns is-multiline">
    <% Meal.all.each do |m| %>
       <div class="column is-one-third">
             <div class="card">
@@ -24,7 +24,7 @@
                 </div>
             </div>
       </div>
-   <% end %>
+   <% end %>       
   </div> 
 </div> <br>
 
