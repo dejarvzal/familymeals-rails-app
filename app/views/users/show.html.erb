@@ -1,1 +1,18 @@
-<h1> Welcome to your meal board <%= @user.name %>!</h1> 
+
+ 
+<div class="container has-background-success-light">
+    <div class="container has-background-success-light">
+    </div>
+    <h1 class="title is-3 has-text-success-dark has-text-centered has-text-weight-bold"> Welcome to your meal board <%= @user.name %>!</h1>
+    <div class="columns">  
+        <div class="column">  
+            <p  class="has-text-left">Here Are Your Meals:</p><br>
+        </div>
+        <div class="column">
+            <div class="image">  
+                <%= session[:user_id] %>
+                <%# image_tag("dinner1.jpg", alt: "Dinner", class:"is-rounded") %>
+            </div>
+        </div>
+    </div>
+</div>
